@@ -760,8 +760,8 @@ style.textContent += `
   .qs-paper-surface {
     position: relative;
     width: 100%;
-    min-height: 60vh;
-    height: 60vh;
+    min-height: 750px;
+    height: 750px;
     overflow: hidden;
     box-sizing: border-box;
     border: 1px solid #e2d8e9;
@@ -827,8 +827,8 @@ style.textContent += `
     }
 
     .qs-paper-surface {
-      min-height: 60vh;
-      height: 60vh;
+      min-height: 750px;
+      height: 750px;
     }
 
     .qs-notebook-toolbar,
