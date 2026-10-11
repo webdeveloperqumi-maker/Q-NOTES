@@ -737,6 +737,107 @@ function installNotebookStyles() {
     }
   `;
 
+style.textContent += `
+  /* Qnotes spacious notebook editor */
+
+  #notebook-editor {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .qs-notebook-toolbar,
+  .qs-notebook-tools {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .qs-paper-surface {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    height: 60vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #e2d8e9;
+    border-radius: 12px;
+    background-color: #fffdf9;
+    touch-action: pan-y;
+  }
+
+  .qs-paper-surface.qs-paper-lined {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 31px,
+      #dcd5e7 32px
+    );
+  }
+
+  .qs-paper-surface.qs-paper-dotted {
+    background-image: radial-gradient(#cfc3dd 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .qs-paper-surface.qs-paper-grid {
+    background-image:
+      linear-gradient(#ddd3e8 1px, transparent 1px),
+      linear-gradient(90deg, #ddd3e8 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .qs-paper-surface.qs-paper-blank {
+    background-image: none;
+  }
+
+  .qs-handwriting-canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: pan-y;
+  }
+
+  .qs-typed-notes {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  #notebook-note-body {
+    width: 100%;
+    min-height: 220px;
+    box-sizing: border-box;
+  }
+
+  .qs-writing-hint {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 600px) {
+    #notebook-editor {
+      padding: 12px;
+    }
+
+    .qs-paper-surface {
+      min-height: 60vh;
+      height: 60vh;
+    }
+
+    .qs-notebook-toolbar,
+    .qs-notebook-tools {
+      gap: 8px;
+    }
+  }
+`;
+
   document.head.appendChild(style);
 }
 
