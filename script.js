@@ -615,10 +615,18 @@ function installNotebookStyles() {
     }
 
     .qs-editor textarea {
-      min-height: 260px;
+      width: 100%;
+      min-heaight: 750px;
+      height: 750px;
+      box-sizing: border-box;
       resize: vertical;
       line-height: 1.9;
-    }
+      padding: 24px;
+   }
+
+   .qs-paper-surface {
+     display: none;
+   }
 
     .qs-paper-lined {
       background-image: repeating-linear-gradient(
