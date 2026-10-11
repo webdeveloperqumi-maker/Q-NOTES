@@ -4,443 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff8f7">
-  <meta name="description" content="Qnotes — Your next chapter starts here.">
+
   <title>Qnotes — Your next chapter starts here.</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#f8eef3">
+  <meta name="description"
+        content="Your personal space for studying, planning and growing.">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="app-shell">
 
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#" data-page="home">
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <a href="#" class="brand">
         <span class="brand-icon">Q</span>
-        <span>
-          <strong>Qnotes</strong>
-          <small>Your next chapter starts here.</small>
-        </span>
+        <span>Qnotes</span>
       </a>
 
-      <div class="side-label">YOUR STUDY SPACE</div>
+      <p class="nav-label">YOUR SPACE</p>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <button class="nav-link active" data-page="home">
-          <span>⌂</span> Home
-        </button>
-        <button class="nav-link" data-page="planner">
-          <span>▦</span> Planner
-        </button>
-        <button class="nav-link" data-page="notebook">
-          <span>▤</span> Notebook
-        </button>
-        <button class="nav-link" data-page="workspace">
-          <span>✧</span> Study workspace
-        </button>
-        <button class="nav-link" data-page="revision">
-          <span>◇</span> Revision centre
-        </button>
-        <button class="nav-link" data-page="papers">
-          <span>▧</span> Question papers
-        </button>
-        <button class="nav-link" data-page="videos">
-          <span>▷</span> Study videos
-        </button>
+      <nav id="main-navigation">
+        <button class="nav-item active" data-page="home">Home</button>
+        <button class="nav-item" data-page="planner">Planner</button>
+        <button class="nav-item" data-page="notebook">Notebook</button>
+        <button class="nav-item" data-page="study">Study space</button>
+        <button class="nav-item" data-page="papers">Question papers</button>
+        <button class="nav-item" data-page="revision">Revision</button>
+        <button class="nav-item" data-page="community">Community</button>
+        <button class="nav-item" data-page="messages">Messages</button>
+        <button class="nav-item" data-page="themes">Theme studio</button>
+        <button class="nav-item" data-page="twin">Learning Twin</button>
+        <button class="nav-item" data-page="plans">Membership</button>
       </nav>
 
-      <div class="side-label">YOUR PEOPLE</div>
-
-      <nav class="main-nav" aria-label="Community navigation">
-        <button class="nav-link" data-page="community">
-          <span>♡</span> Community
-        </button>
-        <button class="nav-link" data-page="messages">
-          <span>◌</span> Messages
-          <span class="nav-count">0</span>
-        </button>
-        <button class="nav-link" data-page="notifications">
-          <span>♧</span> Notifications
-        </button>
-      </nav>
-
-      <div class="side-label">MAKE IT YOURS</div>
-
-      <nav class="main-nav">
-        <button class="nav-link" data-page="themes">
-          <span>✿</span> Theme studio
-        </button>
-        <button class="nav-link" data-page="twin">
-          <span>◎</span> Learning Twin
-        </button>
-        <button class="nav-link" data-page="subscriptions">
-          <span>✧</span> Membership
-        </button>
-        <button class="nav-link" data-page="settings">
-          <span>⚙</span> Settings & privacy
-        </button>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <div class="mini-quote">
-          <span>✧ A gentle reminder</span>
-          <p>You are allowed to grow at your own pace.</p>
-        </div>
-        <button class="profile-button" data-page="settings">
-          <span class="avatar">Q</span>
-          <span><strong>My study space</strong><small>Local demo account</small></span>
-          <span>⌄</span>
-        </button>
-      </div>
+      <button id="theme-toggle" class="theme-toggle">
+        ☾ Change appearance
+      </button>
     </aside>
 
     <main class="main-content">
       <header class="topbar">
-        <button class="icon-button menu-toggle" id="menuToggle"
-          aria-label="Open navigation">☰</button>
-
-        <div class="breadcrumb">
-          <span>Qnotes</span><span>/</span>
-          <strong id="breadcrumbPage">Home</strong>
+        <div>
+          <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD</p>
+          <h1 id="page-title">Welcome to Qnotes.</h1>
         </div>
 
-        <div class="topbar-actions">
-          <span class="date-label" id="todayLabel"></span>
-          <button class="icon-button" id="themeToggle"
-            aria-label="Toggle light and dark mode">☾</button>
-          <button class="avatar small-avatar" data-page="settings"
-            aria-label="Open settings">Q</button>
-        </div>
+        <button class="profile-button" aria-label="Student profile">
+          Q
+        </button>
       </header>
 
-      <div class="page-container">
-
-        <!-- HOME DASHBOARD -->
-        <section class="page active" id="page-home">
-          <div class="welcome-row">
-            <div>
-              <div class="eyebrow">YOUR LITTLE CORNER OF POSSIBILITY ✧</div>
-              <h1>Your next chapter <em>starts here.</em></h1>
-              <p class="muted">A little progress is still progress. Let's make today count.</p>
-            </div>
-            <button class="primary-button" data-page="planner">+ Plan my day</button>
-          </div>
-
-          <div class="hero-card">
-            <div class="hero-copy">
-              <span class="pill">YOUR STUDY JOURNEY</span>
-              <h2>Make room for<br>what you're becoming.</h2>
-              <p>Your notes, plans and little victories, all in one place.</p>
-              <button class="glass-button" data-page="notebook">Open my notebook ↗</button>
-            </div>
-            <div class="hero-decoration" aria-hidden="true">
-              <div class="orbit orbit-one"></div>
-              <div class="orbit orbit-two"></div>
-              <div class="floating-book">Q</div>
-              <span class="sparkle sparkle-one">✧</span>
-              <span class="sparkle sparkle-two">✦</span>
-            </div>
-          </div>
-
-          <div class="section-heading">
-            <div><h2>Your study overview</h2><p class="muted">Little steps, lovely progress.</p></div>
-            <button class="text-button" data-page="planner">View planner →</button>
-          </div>
-
-          <div class="stats-grid">
-            <article class="stat-card pink-tint">
-              <span class="stat-icon">▦</span>
-              <span class="stat-label">Tasks to do</span>
-              <strong id="taskCount">0</strong>
-              <small>On your list</small>
-            </article>
-            <article class="stat-card lavender-tint">
-              <span class="stat-icon">▤</span>
-              <span class="stat-label">Saved notes</span>
-              <strong id="noteCount">0</strong>
-              <small>Your knowledge library</small>
-            </article>
-            <article class="stat-card blue-tint">
-              <span class="stat-icon">◇</span>
-              <span class="stat-label">Completed tasks</span>
-              <strong id="completedCount">0</strong>
-              <small>Look at you go!</small>
-            </article>
-          </div>
-
-          <div class="dashboard-grid">
-            <article class="panel">
-              <div class="panel-heading">
-                <div><h3>Today's little plans</h3><p class="muted">One thing at a time.</p></div>
-                <button class="text-button" data-page="planner">See all</button>
-              </div>
-              <div id="homeTasks" class="task-list"></div>
-              <button class="secondary-button full-button" data-page="planner">+ Add a task</button>
-            </article>
-
-            <article class="panel quote-panel">
-              <span class="quote-mark">“</span>
-              <p class="quote-text">The secret of getting ahead is getting started.</p>
-              <span class="quote-author">A gentle nudge for today</span>
-              <div class="quote-decoration">✧ ♡ ✧</div>
-            </article>
-          </div>
-
-          <div class="section-heading">
-            <div><h2>Your study tools</h2><p class="muted">Everything you need, one little space.</p></div>
-          </div>
-
-          <div class="tools-grid">
-            <button class="tool-card" data-page="notebook"><span>▤</span><strong>Notebook</strong><small>Write your thoughts</small></button>
-            <button class="tool-card" data-page="revision"><span>◇</span><strong>Flashcards</strong><small>Remember more</small></button>
-            <button class="tool-card" data-page="workspace"><span>✧</span><strong>AI study tutor</strong><small>Learn at your pace</small></button>
-            <button class="tool-card" data-page="community"><span>♡</span><strong>Study together</strong><small>Find your people</small></button>
-          </div>
-        </section>
-
-        <!-- PLANNER -->
-        <section class="page" id="page-planner">
-          <div class="page-heading">
-            <div class="eyebrow">A PLAN THAT LOVES YOU BACK</div>
-            <h1>Your planner <em>& plans.</em></h1>
-            <p class="muted">Keep track of assignments, tests, exams and everyday tasks.</p>
-          </div>
-          <article class="panel">
-            <h3>Add something to your planner</h3>
-            <form id="taskForm" class="task-form">
-              <label>Task or assessment
-                <input id="taskTitle" required maxlength="120"
-                  placeholder="e.g. Revise organic chemistry">
-              </label>
-              <div class="form-row">
-                <label>Type
-                  <select id="taskType">
-                    <option>Study task</option>
-                    <option>Assignment</option>
-                    <option>Test</option>
-                    <option>Exam</option>
-                    <option>Revision</option>
-                    <option>Personal</option>
-                  </select>
-                </label>
-                <label>Due date
-                  <input id="taskDate" type="date">
-                </label>
-              </div>
-              <button class="primary-button" type="submit">+ Add to my planner</button>
-            </form>
-          </article>
-          <article class="panel section-gap">
-            <div class="panel-heading"><h3>Everything on your list</h3>
-              <span class="pill" id="plannerTaskCount">0 tasks</span></div>
-            <div id="plannerTasks" class="task-list"></div>
-          </article>
-          <p class="integration-note">Calendar sync and reminders will be connected in a later stage.</p>
-        </section>
-
-        <!-- NOTEBOOK -->
-        <section class="page" id="page-notebook">
-          <div class="page-heading">
-            <div class="eyebrow">YOUR THOUGHTS BELONG HERE</div>
-            <h1>The lovely little <em>notebook.</em></h1>
-            <p class="muted">Write, organise and keep your learning in one place.</p>
-          </div>
-          <article class="panel notebook-panel">
-            <label>Note title
-              <input id="noteTitle" maxlength="120" placeholder="Give this page a title...">
-            </label>
-            <div class="paper-toolbar">
-              <label>Paper style
-                <select id="paperStyle">
-                  <option value="lined">Lined paper</option>
-                  <option value="plain">Plain paper</option>
-                  <option value="grid">Grid paper</option>
-                  <option value="dotted">Dotted paper</option>
-                </select>
-              </label>
-              <label>Ink colour
-                <select id="inkColour">
-                  <option value="default">Classic</option>
-                  <option value="rose">Dusty rose</option>
-                  <option value="lavender">Lavender</option>
-                  <option value="blue">Powder blue</option>
-                </select>
-              </label>
-            </div>
-            <textarea id="noteBody" class="note-editor lined-paper"
-              placeholder="Dear future me... start writing here."
-              rows="12"></textarea>
-            <div class="notebook-actions">
-              <span class="muted" id="noteStatus">Your notes stay in this browser for now.</span>
-              <button class="primary-button" id="saveNote">Save note ♡</button>
-            </div>
-          </article>
-          <article class="panel section-gap">
-            <h3>Your saved pages</h3>
-            <div id="savedNotes" class="saved-notes"></div>
-          </article>
-          <p class="integration-note">Stylus handwriting, drawing, diagrams, attachments and cloud syncing are planned integrations.</p>
-        </section>
-
-        <!-- AI STUDY WORKSPACE -->
-        <section class="page" id="page-workspace">
-          <div class="page-heading">
-            <div class="eyebrow">LEARN IT YOUR WAY</div>
-            <h1>Your connected <em>study space.</em></h1>
-            <p class="muted">A future home for your notes, tutor and AI-powered summaries.</p>
-          </div>
-          <div class="feature-grid">
-            <article class="panel feature-card"><span class="feature-icon">✧</span><h3>AI tutor</h3><p>Ask questions and get explanations suited to your learning level.</p><button class="secondary-button" data-page="chat">Open study chat →</button></article>
-            <article class="panel feature-card"><span class="feature-icon">▤</span><h3>AI summaries</h3><p>Turn your lecture notes into organised study material.</p><span class="pill">AI integration planned</span></article>
-            <article class="panel feature-card"><span class="feature-icon">♡</span><h3>Connected notebook</h3><p>Keep your explanations beside your own notes.</p><button class="secondary-button" data-page="notebook">Open notebook →</button></article>
-          </div>
-          <p class="integration-note">Real AI responses require a secure backend and an AI provider. We won't expose private API keys in browser code.</p>
-        </section>
-
-        <!-- CHAT -->
-        <section class="page" id="page-chat">
-          <div class="page-heading"><div class="eyebrow">A LITTLE HELP GOES A LONG WAY</div><h1>Your study <em>companion.</em></h1></div>
-          <article class="panel chat-panel">
-            <div class="chat-header"><span class="avatar">Q</span><div><strong>Qnotes Study Companion</strong><small>Frontend demonstration</small></div></div>
-            <div id="chatMessages" class="chat-messages" aria-live="polite">
-              <div class="chat-bubble assistant-bubble">Hi, lovely! ♡ I'm your Qnotes study companion demo. Try asking for a study plan or an explanation of a topic. Real AI will be connected later.</div>
-            </div>
-            <div class="quick-prompts">
-              <button class="prompt-chip" data-prompt="Help me make a study plan.">Make a study plan</button>
-              <button class="prompt-chip" data-prompt="Explain a difficult topic step by step.">Explain a topic</button>
-            </div>
-            <form id="chatForm" class="chat-form">
-              <input id="chatInput" required maxlength="1500" placeholder="Ask your study companion...">
-              <button class="primary-button" type="submit">Send ↗</button>
-            </form>
-            <p class="integration-note">Demo replies only. AI chat history, follow-up generation and secure AI access come later.</p>
-          </article>
-        </section>
-
-        <!-- REVISION -->
-        <section class="page" id="page-revision">
-          <div class="page-heading"><div class="eyebrow">LITTLE BY LITTLE, YOU LEARN</div><h1>The revision <em>room.</em></h1><p class="muted">Practise remembering, not just rereading.</p></div>
-          <div class="feature-grid">
-            <article class="panel feature-card"><span class="feature-icon">◇</span><h3>Flashcards</h3><p>Create question-and-answer cards for active recall.</p><button class="secondary-button" data-page="notebook">Prepare notes →</button></article>
-            <article class="panel feature-card"><span class="feature-icon">✧</span><h3>Practice quizzes</h3><p>Test your understanding with adjustable practice questions.</p><button class="secondary-button" data-page="papers">Question papers →</button></article>
-            <article class="panel feature-card"><span class="feature-icon">◎</span><h3>Learning Twin</h3><p>Track demonstrated understanding and identify topics that need revision.</p><button class="secondary-button" data-page="twin">View Learning Twin →</button></article>
-          </div>
-          <p class="integration-note">Interactive flashcards, scored quizzes and progress tracking will be implemented next.</p>
-        </section>
-
-        <!-- QUESTION PAPERS -->
-        <section class="page" id="page-papers">
-          <div class="page-heading"><div class="eyebrow">PRACTISE WITH PURPOSE</div><h1>Question papers <em>& practice.</em></h1></div>
-          <article class="panel">
-            <h3>Build a practice paper</h3>
-            <form id="paperForm" class="task-form">
-              <label>Subject<input id="paperSubject" required placeholder="e.g. Physics"></label>
-              <div class="form-row">
-                <label>Total marks<input id="paperMarks" type="number" min="1" max="300" value="70" required></label>
-                <label>Number of questions<input id="paperQuestions" type="number" min="1" max="100" value="10" required></label>
-              </div>
-              <label>Question style
-                <select id="paperType"><option>Mixed questions</option><option>Multiple choice</option><option>Short answers</option><option>Long answers</option></select>
-              </label>
-              <button class="primary-button" type="submit">Create paper outline</button>
-            </form>
-            <div id="paperResult" class="paper-result" hidden></div>
-          </article>
-          <p class="integration-note">This first version creates an outline only. Generated questions, answer spaces, marking memorandums and printable papers will follow.</p>
-        </section>
-
-        <!-- YOUTUBE -->
-        <section class="page" id="page-videos">
-          <div class="page-heading"><div class="eyebrow">LEARN, WATCH, UNDERSTAND</div><h1>Your study <em>watchlist.</em></h1></div>
-          <article class="panel">
-            <h3>Find a study video</h3>
-            <form id="videoForm" class="task-form">
-              <label>Topic or subject<input id="videoTopic" required placeholder="e.g. ray diagrams physics"></label>
-              <button class="primary-button" type="submit">Search YouTube ↗</button>
-            </form>
-            <div id="videoResult"></div>
-          </article>
-          <p class="integration-note">Search opens YouTube results. API-powered search, saved playlists and linking videos to notes will come later.</p>
-        </section>
-
-        <!-- COMMUNITY -->
-        <section class="page" id="page-community">
-          <div class="page-heading"><div class="eyebrow">BETTER TOGETHER</div><h1>Your student <em>community.</em></h1></div>
-          <article class="panel">
-            <h3>Start a discussion</h3>
-            <form id="postForm" class="task-form">
-              <label>Subject or group<input id="postSubject" required placeholder="e.g. First-year chemistry"></label>
-              <label>Your post<textarea id="postBody" required maxlength="2000" rows="4" placeholder="Share a question, a discovery or a study tip..."></textarea></label>
-              <button class="primary-button" type="submit">Publish demo post ♡</button>
-            </form>
-          </article>
-          <article class="panel section-gap"><h3>Community feed</h3><div id="communityFeed"><p class="muted">Your discussion space will grow here.</p></div></article>
-          <p class="integration-note">Demo posts are local to this browser. Shared groups, comments, replies, likes, reporting and moderation require the community backend.</p>
-        </section>
-
-        <!-- MESSAGES & NOTIFICATIONS -->
-        <section class="page" id="page-messages">
-          <div class="page-heading"><div class="eyebrow">A SPACE FOR CONVERSATION</div><h1>Private <em>messages.</em></h1></div>
-          <article class="panel"><span class="feature-icon">◌</span><h3>Your conversations</h3><p class="muted">Secure student-to-student messaging will live here.</p><p>Private messages need authenticated accounts, access controls and abuse reporting before launch.</p></article>
-        </section>
-
-        <section class="page" id="page-notifications">
-          <div class="page-heading"><div class="eyebrow">A GENTLE HEADS-UP</div><h1>Your <em>notifications.</em></h1></div>
-          <article class="panel"><h3>You're all caught up ♡</h3><p class="muted">Task reminders, replies, messages and community updates will appear here when connected.</p></article>
-        </section>
-
-        <!-- THEME STUDIO -->
-        <section class="page" id="page-themes">
-          <div class="page-heading"><div class="eyebrow">MAKE THIS SPACE YOURS</div><h1>The theme <em>studio.</em></h1><p class="muted">Choose a palette for your study days.</p></div>
-          <div class="theme-grid">
-            <button class="theme-card theme-blush" data-theme="blush"><span>♡</span><strong>Blush Academia</strong><small>Pink · Pearl · Rose</small></button>
-            <button class="theme-card theme-lavender" data-theme="lavender"><span>✧</span><strong>Lavender Haze</strong><small>Lavender · Lilac · Cream</small></button>
-            <button class="theme-card theme-blue" data-theme="blue"><span>☁</span><strong>Powder Blue</strong><small>Blue · Cloud · Silver</small></button>
-            <button class="theme-card theme-rose" data-theme="rose"><span>✿</span><strong>Dusty Rose</strong><small>Rose · Mauve · Ivory</small></button>
-            <button class="theme-card theme-cream" data-theme="cream"><span>❀</span><strong>Vanilla Library</strong><small>Vanilla · Cocoa · Linen</small></button>
-            <button class="theme-card theme-matcha" data-theme="matcha"><span>❧</span><strong>Matcha Study</strong><small>Sage · Matcha · Cream</small></button>
-          </div>
-          <p class="integration-note">These are six working colour palettes. A full theme editor with custom colours, fonts and widget arrangements comes later.</p>
-        </section>
-
-        <!-- LEARNING TWIN -->
-        <section class="page" id="page-twin">
-          <div class="page-heading"><div class="eyebrow">UNDERSTANDING OVER PERFECTION</div><h1>Your Learning <em>Twin.</em></h1></div>
-          <article class="panel"><span class="feature-icon">◎</span><h3>A picture of how you're learning</h3><p class="muted">Qnotes will use your quiz results, corrections and demonstrated understanding to help identify strengths and topics that need practice.</p><div class="progress-track"><span style="width:0%"></span></div><small class="muted">Progress tracking starts when assessments are implemented.</small></article>
-          <p class="integration-note">No learning score is being calculated yet. Future recommendations should be based on actual learning evidence, not guesses.</p>
-        </section>
-
-        <!-- SUBSCRIPTIONS -->
-        <section class="page" id="page-subscriptions">
-          <div class="page-heading"><div class="eyebrow">YOUR STUDY JOURNEY, YOUR CHOICE</div><h1>Find your <em>Qnotes plan.</em></h1><p class="muted">Illustrative plan structure. Prices and benefits can be configured before launch.</p></div>
-          <div class="pricing-grid">
-            <article class="panel pricing-card"><span class="pill">FREE</span><h3>The Study Starter</h3><p>Build your study habits.</p><ul><li>Core planner</li><li>Basic notebooks</li><li>Starter themes</li><li>Community access when launched</li></ul><button class="secondary-button" disabled>Included in demo</button></article>
-            <article class="panel pricing-card featured-plan"><span class="pill">PLUS</span><h3>The Study Bloom</h3><p>More room to grow.</p><ul><li>Expanded study tools</li><li>AI allowances</li><li>More customisation</li><li>Revision analytics</li></ul><button class="secondary-button" disabled>Coming later</button></article>
-            <article class="panel pricing-card"><span class="pill">PREMIUM</span><h3>The Scholar Suite</h3><p>Your connected learning space.</p><ul><li>Higher AI allowances</li><li>Advanced study analytics</li><li>Expanded organisation</li><li>Premium customisation</li></ul><button class="secondary-button" disabled>Coming later</button></article>
-          </div>
-          <p class="integration-note">Monthly and annual billing, payment processing, entitlements, refunds and subscription management are not active.</p>
-        </section>
-
-        <!-- SETTINGS -->
-        <section class="page" id="page-settings">
-          <div class="page-heading"><div class="eyebrow">YOUR SPACE, YOUR RULES</div><h1>Settings <em>& privacy.</em></h1></div>
-          <article class="panel"><h3>Appearance</h3><p class="muted">Change the palette or switch between light and dark mode.</p><button class="secondary-button" id="settingsTheme">Toggle light / dark mode</button></article>
-          <article class="panel section-gap"><h3>Account & security</h3><p class="muted">You're using a local demo. There is no real student account or password here yet.</p><p>Before launch, we'll add secure authentication, account recovery, data export and deletion, privacy controls and protected access to private content.</p></article>
-          <article class="panel section-gap"><h3>Your local data</h3><p class="muted">Notes, tasks and demo posts are stored in this browser on this device.</p><button class="secondary-button" id="exportData">Export my demo data</button></article>
-        </section>
-
-      </div>
-      <footer class="app-footer">Made with care ♡ Qnotes · Your next chapter starts here.</footer>
+      <section id="page-content" aria-live="polite">
+        <p>Your next chapter starts here.</p>
+      </section>
     </main>
+
   </div>
 
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
