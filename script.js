@@ -1237,6 +1237,11 @@ function getNotebookPages(notebook) {
 let selectedColour = "pink";
 let selectedNotebookId = null;
 let selectedPageId = null;
+let currentStrokes = [];
+let currentStroke = null;
+let currentWritingTool = "pen";
+let currentInkColour = "#55436f";
+let currentInkSize = 3;
 
 // =====================================================
 // 9. BUILD THE NOTEBOOK STUDIO
