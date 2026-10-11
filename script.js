@@ -2009,6 +2009,9 @@ function openNotebook(id) {
   const editor = document.getElementById("notebook-editor");
   editor.hidden = false;
 
+   setupQnotesHandwriting();
+   drawQnotesHandwriting();
+
   document.getElementById("editor-title").textContent = notebook.name;
   document.getElementById("notebook-note-title").value = "";
   document.getElementById("notebook-note-body").value = "";
