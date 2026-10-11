@@ -1243,6 +1243,163 @@ let currentWritingTool = "pen";
 let currentInkColour = "#55436f";
 let currentInkSize = 3;
 
+
+function drawQnotesHandwriting() {
+  const canvas = document.getElementById("qnotes-writing-canvas");
+  if (!canvas) return;
+
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return;
+
+  const dpr = window.devicePixelRatio || 1;
+  const width = Math.round(rect.width * dpr);
+  const height = Math.round(rect.height * dpr);
+
+  if (canvas.width !== width || canvas.height !== height) {
+    canvas.width = width;
+    canvas.height = height;
+  }
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  for (const stroke of currentStrokes) {
+    if (!stroke.points || stroke.points.length === 0) continue;
+
+    ctx.save();
+    ctx.globalCompositeOperation =
+      stroke.tool === "eraser" ? "destination-out" : "source-over";
+    ctx.strokeStyle = stroke.colour || "#55436f";
+    ctx.fillStyle = stroke.colour || "#55436f";
+    ctx.lineWidth = (stroke.size || 3) * dpr;
+
+    const points = stroke.points;
+
+    if (points.length === 1) {
+      ctx.beginPath();
+      ctx.arc(
+        points[0].x * canvas.width,
+        points[0].y * canvas.height,
+        ctx.lineWidth / 2,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(
+        points[0].x * canvas.width,
+        points[0].y * canvas.height
+      );
+
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(
+          points[i].x * canvas.width,
+          points[i].y * canvas.height
+        );
+      }
+
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+}
+
+function setupQnotesHandwriting() {
+  const canvas = document.getElementById("qnotes-writing-canvas");
+  if (!canvas || canvas.dataset.ready === "true") return;
+
+  canvas.dataset.ready = "true";
+
+  const getPoint = event => {
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+      x: Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width)),
+      y: Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height))
+    };
+  };
+
+  canvas.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") return;
+    if (event.button !== undefined && event.button !== 0) return;
+
+    event.preventDefault();
+
+    currentStroke = {
+      tool: currentWritingTool,
+      colour: currentInkColour,
+      size: currentInkSize,
+      points: [getPoint(event)]
+    };
+
+    currentStrokes.push(currentStroke);
+    canvas.setPointerCapture(event.pointerId);
+    drawQnotesHandwriting();
+  });
+
+  canvas.addEventListener("pointermove", event => {
+    if (!currentStroke) return;
+    if (!canvas.hasPointerCapture(event.pointerId)) return;
+
+    event.preventDefault();
+    currentStroke.points.push(getPoint(event));
+    drawQnotesHandwriting();
+  });
+
+  function finishStroke() {
+    currentStroke = null;
+  }
+
+  canvas.addEventListener("pointerup", finishStroke);
+  canvas.addEventListener("pointercancel", finishStroke);
+  canvas.addEventListener("lostpointercapture", finishStroke);
+
+  document.getElementById("qnotes-ink-colour")?.addEventListener(
+    "input",
+    event => {
+      currentInkColour = event.target.value;
+    }
+  );
+
+  document.getElementById("qnotes-ink-size")?.addEventListener(
+    "input",
+    event => {
+      currentInkSize = Number(event.target.value) || 3;
+    }
+  );
+
+  document.querySelectorAll("[data-writing-tool]").forEach(button => {
+    button.addEventListener("click", () => {
+      currentWritingTool = button.dataset.writingTool;
+
+      document.querySelectorAll("[data-writing-tool]").forEach(item => {
+        item.classList.toggle("qs-tool-active", item === button);
+      });
+    });
+  });
+
+  document.getElementById("qnotes-undo")?.addEventListener("click", () => {
+    currentStrokes.pop();
+    currentStroke = null;
+    drawQnotesHandwriting();
+  });
+
+  document.getElementById("qnotes-clear")?.addEventListener("click", () => {
+    currentStrokes = [];
+    currentStroke = null;
+    drawQnotesHandwriting();
+  });
+
+  drawQnotesHandwriting();
+}
+
+
 // =====================================================
 // 9. BUILD THE NOTEBOOK STUDIO
 // =====================================================
