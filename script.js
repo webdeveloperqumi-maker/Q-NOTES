@@ -1217,7 +1217,100 @@ function renderNotebookStudio() {
         <div id="ultra-collections" class="qs-section"></div>
       </section>
 
-      <section id="notebook-editor" class="qs-editor" hidden>
+      
+<section id="notebook-editor" class="qs-editor" hidden>
+  <div class="qs-section-heading">
+    <div>
+      <p class="qs-eyebrow">YOUR PRIVATE PAGES</p>
+      <h2 id="editor-title">My notebook</h2>
+      <p>Your next chapter starts here.</p>
+    </div>
+
+    <button id="close-editor" class="qs-button" type="button">
+      Close
+    </button>
+  </div>
+
+  <div class="qs-notebook-toolbar">
+    <label for="paper-style">Paper</label>
+    <select id="paper-style">
+      <option value="lined">Lined</option>
+      <option value="dotted">Dotted</option>
+      <option value="grid">Grid</option>
+      <option value="blank">Blank</option>
+    </select>
+
+    <label for="qnotes-ink-colour">Ink colour</label>
+    <input id="qnotes-ink-colour" type="color" value="#55436f">
+
+    <label for="qnotes-ink-size">Pen size</label>
+    <input
+      id="qnotes-ink-size"
+      type="range"
+      min="1"
+      max="12"
+      value="3"
+    >
+  </div>
+
+  <div class="qs-notebook-tools">
+    <button class="qs-button qs-tool-active"
+      type="button" data-writing-tool="pen">Pen</button>
+
+    <button class="qs-button"
+      type="button" data-writing-tool="eraser">Eraser</button>
+
+    <button id="qnotes-undo" class="qs-button"
+      type="button">Undo</button>
+
+    <button id="qnotes-clear" class="qs-button"
+      type="button">Clear page</button>
+  </div>
+
+  <p class="qs-writing-hint">
+    Write or draw with your Apple Pencil, or type notes below.
+  </p>
+
+  <div id="qnotes-paper-surface"
+    class="qs-paper-surface qs-paper-lined">
+    <canvas
+      id="qnotes-writing-canvas"
+      class="qs-handwriting-canvas"
+      aria-label="Handwriting and drawing canvas"
+    ></canvas>
+  </div>
+
+  <div class="qs-typed-notes">
+    <label for="notebook-note-title">Page title</label>
+    <input
+      id="notebook-note-title"
+      maxlength="120"
+      placeholder="e.g. Lecture 1 — Introduction"
+    >
+
+    <label for="notebook-note-body">Typed notes (optional)</label>
+    <textarea
+      id="notebook-note-body"
+      class="qs-paper-lined"
+      maxlength="30000"
+      placeholder="Write your notes here..."
+    ></textarea>
+  </div>
+
+  <button id="save-notebook-page"
+    class="qs-button qs-button-primary" type="button">
+    Save this page
+  </button>
+
+  <p id="page-status" class="qs-status" aria-live="polite"></p>
+
+  <div class="qs-section-heading">
+    <h3>Saved pages</h3>
+  </div>
+
+  <div id="notebook-pages" class="qs-section"></div>
+</section>
+
         <div class="qs-section-heading">
           <div>
             <p class="qs-eyebrow">YOUR PRIVATE PAGES</p>
